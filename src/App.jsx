@@ -6,21 +6,21 @@ import Dentist from "./components/pages/Dentist";
 import Contact from "./components/pages/Contact";
 import Favorites from "./components/pages/Favorites";
 import Footer from "./components/layouts/Footer/Footer";
-import "./App.css";
+// import "./App.css";
 import GlobalContextProvider from "./components/context/GlobalContext";
-
 
 function App() {
   return (
+    
     <BrowserRouter>
       <GlobalContextProvider>
         <Routes>
           <Route element={<Footer />}>
             <Route element={<Navbar />}>
               <Route path="/" element={<Home />} />
-              <Route path="/dentistas" element={<Dentist />} />
+              <Route path="/dentista" element={<Dentist />} />
               <Route path="/contacto" element={<Contact />} />
-              <Route path="/favoritos" element={<Favorites />} />
+              <Route path="/favs" element={<Favorites />} />
             </Route>
           </Route>
         </Routes>

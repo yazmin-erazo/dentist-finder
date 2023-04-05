@@ -2,7 +2,7 @@ import axios from "axios";
 import React, { createContext, useEffect, useReducer } from "react";
 
 // Creamos el contexto global
-const GlobalContext = createContext();
+export const GlobalContext = createContext();
 
 // Estado inicial del contexto
 const initialState = {
