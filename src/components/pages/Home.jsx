@@ -10,8 +10,7 @@ const Home = () => {
       <h1>Dentistas</h1>
       {dentists.map((dentist) => (
         <div key={dentist.id}>
-          <h2>{dentist.name}</h2>
-          <p>{dentist.email}</p>
+          <p>{dentist.name}</p>
         </div>
       ))}
     </div>

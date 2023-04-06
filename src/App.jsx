@@ -6,12 +6,12 @@ import Dentist from "./components/pages/Dentist";
 import Contact from "./components/pages/Contact";
 import Favorites from "./components/pages/Favorites";
 import Footer from "./components/layouts/Footer/Footer";
-// import "./App.css";
+import "./App.css";
 import GlobalContextProvider from "./components/context/GlobalContext";
 
 function App() {
   return (
-    
+
     <BrowserRouter>
       <GlobalContextProvider>
         <Routes>

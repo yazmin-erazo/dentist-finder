@@ -33,7 +33,8 @@ const appReducer = (state, action) => {
 };
 
 // Componente proveedor que envuelve la aplicación
-const GlobalContextProvider = ({ Children }) => {
+
+const GlobalContextProvider = ({ children }) => {
   const [state, dispatch] = useReducer(appReducer, initialState);
 
   useEffect(() => {
@@ -50,7 +51,7 @@ const GlobalContextProvider = ({ Children }) => {
 
   return (
     <GlobalContext.Provider value={{ state, dispatch, toggleTheme }}>
-      {Children}
+      {children}
     </GlobalContext.Provider>
   );
 };
