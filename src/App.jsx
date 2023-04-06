@@ -11,7 +11,6 @@ import GlobalContextProvider from "./components/context/GlobalContext";
 
 function App() {
   return (
-
     <BrowserRouter>
       <GlobalContextProvider>
         <Routes>
@@ -23,6 +22,7 @@ function App() {
               <Route path="/favs" element={<Favorites />} />
             </Route>
           </Route>
+          <Route path="*" element={<h1>Not Found</h1>} />
         </Routes>
       </GlobalContextProvider>
     </BrowserRouter>

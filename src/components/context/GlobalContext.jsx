@@ -1,4 +1,4 @@
-import axios from "axios";
+import { getDentistsData } from "../services/api";
 import React, { createContext, useEffect, useReducer } from "react";
 
 // Creamos el contexto global
@@ -19,7 +19,7 @@ const appReducer = (state, action) => {
     case "SET_DENTISTS":
       return { ...state, dentists: action.payload };
     case "ADD_FAVORITE":
-      return { ...state, favorites: [...state.favorites, action.payload] };
+      return { ...state, favorites: state.favorites.concat(action.payload) };
     case "REMOVE_FAVORITE":
       return {
         ...state,
@@ -39,11 +39,26 @@ const GlobalContextProvider = ({ children }) => {
 
   useEffect(() => {
     // Llamada a la API para obtener la información de los dentistas
-    axios.get("https://jsonplaceholder.typicode.com/users/").then((response) => {
-        console.log(response.data); 
-      dispatch({ type: "SET_DENTISTS", payload: response.data });
-    });
+    const fetchData = async () => {
+      const data = await getDentistsData();
+      dispatch({ type: "SET_DENTISTS", payload: data });
+    };
+    fetchData();
   }, []);
+
+  // Recuperar los favoritos del localStorage al cargar la aplicación
+  useEffect(() => {
+    const favorites = JSON.parse(localStorage.getItem("favorites")) ?? [];
+    // Si la lista de favoritos no está vacía, agregarla al estado global
+    if (favorites.length > 0) {
+      dispatch({ type: "ADD_FAVORITE", payload: favorites });
+    }
+  }, []);
+
+  // Guardar los favoritos en localStorage
+  useEffect(() => {
+    localStorage.setItem("favorites", JSON.stringify(state.favorites));
+  }, [state.favorites]);
 
   const toggleTheme = () => {
     dispatch({ type: "TOGGLE_THEME" });
