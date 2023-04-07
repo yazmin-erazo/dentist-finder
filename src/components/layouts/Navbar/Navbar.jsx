@@ -1,9 +1,31 @@
-import React from 'react'
+import React, { useContext } from "react";
+import { Outlet } from "react-router-dom";
+import { GlobalContext } from "../../context/GlobalContext";
 
 const Navbar = () => {
-  return (
-    <h1>Navbar</h1>
-  )
-}
+  const { state, toggleTheme } = useContext(GlobalContext);
 
-export default Navbar
+  const handleThemeChange = () => {
+    toggleTheme();
+  };
+  return (
+    <div>
+      <h2>Navbar</h2>
+
+      <label htmlFor="theme-switch" className="theme-switch">
+        <input
+          type="checkbox"
+          id="theme-switch"
+          checked={state.theme === "dark"}
+          onChange={handleThemeChange}
+        />
+        <span className="slider round"></span>
+      </label>
+      <a>Dentistas - Favoritos - Contacto</a>
+
+      <Outlet />
+    </div>
+  );
+};
+
+export default Navbar;
