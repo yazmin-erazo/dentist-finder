@@ -2,12 +2,12 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 
 import Navbar from "./components/layouts/Navbar/Navbar";
 import Home from "./components/pages/Home";
-import Dentist from "./components/pages/Dentist";
 import Contact from "./components/pages/Contact";
 import Favorites from "./components/pages/Favorites";
 import Footer from "./components/layouts/Footer/Footer";
 import "./App.css";
 import GlobalContextProvider from "./components/context/GlobalContext";
+import DentistDetail from "./components/pages/DentistDetail";
 
 function App() {
   return (
@@ -17,7 +17,7 @@ function App() {
           <Route element={<Footer />}>
             <Route element={<Navbar />}>
               <Route path="/" element={<Home />} />
-              <Route path="/dentista" element={<Dentist />} />
+              <Route path="/dentista/:id" element={<DentistDetail />} />
               <Route path="/contacto" element={<Contact />} />
               <Route path="/favs" element={<Favorites />} />
             </Route>

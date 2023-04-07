@@ -48,7 +48,7 @@ const GlobalContextProvider = ({ children }) => {
 
   // Recuperar los favoritos del localStorage al cargar la aplicación
   useEffect(() => {
-    const favorites = JSON.parse(localStorage.getItem("favorites")) ?? [];
+    const favorites = JSON.parse(localStorage.getItem("favorites")) || [];
     // Si la lista de favoritos no está vacía, agregarla al estado global
     if (favorites.length > 0) {
       dispatch({ type: "ADD_FAVORITE", payload: favorites });
