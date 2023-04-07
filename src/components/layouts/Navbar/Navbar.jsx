@@ -1,16 +1,9 @@
-import React from "react";
-import { Outlet } from "react-router-dom";
+import React from 'react'
 
 const Navbar = () => {
   return (
-    <div>
-      <h2>Navbar</h2>
+    <h1>Navbar</h1>
+  )
+}
 
-      <a>Dentistas - Favoritos - Contacto</a>
-
-      <Outlet />
-    </div>
-  );
-};
-
-export default Navbar;
+export default Navbar

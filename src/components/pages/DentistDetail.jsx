@@ -14,7 +14,10 @@ const DentistDetail = () => {
   // Verifica si el dentista está en la lista de favoritos
   const isFavorite = favorites.some((dentist) => dentist.login.uuid === id);
 
-
+  if (!selectedDentist) {
+    return <div>No se encontró el dentista</div>;
+  }
+  
   return (
     <div>
       <h1>
@@ -27,7 +30,7 @@ const DentistDetail = () => {
           <p>Email: {selectedDentist.email}</p>
           <p>Teléfono: {selectedDentist.phone}</p>
           <p>Descripción: {selectedDentist.description}</p>
-          {!isFavorite && <p>Este dentista esta en la lista de favoritos</p>}
+          {isFavorite && <p>Este dentista esta en la lista de favoritos</p>}
         </>
       )}
     </div>

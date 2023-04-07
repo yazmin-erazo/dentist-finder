@@ -64,6 +64,7 @@ const GlobalContextProvider = ({ children }) => {
     dispatch({ type: "TOGGLE_THEME" });
   };
 
+
   return (
     <GlobalContext.Provider value={{ state, dispatch, toggleTheme }}>
       {children}
