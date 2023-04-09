@@ -5,6 +5,8 @@ export const generateId = () => {
   return random + date;
 };
 
+// ======================================================
+
 export const generateDescription = (name) => {
   const adjectives = [
     "amable",
@@ -24,7 +26,9 @@ export const generateDescription = (name) => {
     " especializado en ofrecer tratamientos de calidad",
     ", brindando así soluciones efectivas y de larga duración",
     "!Estoy aquí para ayudarte!",
-    "que me ha permitido tratar casos de todo tipo y complejidad"
+    "que me ha permitido tratar casos de todo tipo y complejidad",
   ];
-  return `Soy ${name}, un dentista ${randomAdjective} con más de ${yearsOfExperience} años de experiencia `;
+  const randomComplement =
+    complement[Math.floor(Math.random() * complement.length)];
+  return `Soy ${name}, un dentista ${randomAdjective} con más de ${yearsOfExperience} años de experiencia ${randomComplement} `;
 };

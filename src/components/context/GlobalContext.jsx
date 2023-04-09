@@ -22,9 +22,9 @@ const appReducer = (state, action) => {
       return { ...state, dentists: action.payload };
     case "ADD_FAVORITE":
       // Agrega un dentista a la lista de favoritos en el estado global
+      console.log(state);
       return { ...state, favorites: state.favorites.concat(action.payload) };
     case "REMOVE_FAVORITE":
-      // Elimina un dentista de la lista de favoritos en el estado global
       return {
         ...state,
         favorites: state.favorites.filter(
@@ -39,8 +39,17 @@ const appReducer = (state, action) => {
 // Componente proveedor que envuelve la aplicación
 
 const GlobalContextProvider = ({ children }) => {
+  // const [state, dispatch] = useReducer(appReducer, initialState);
+
   // Configura el estado global usando el reducer y el estado inicial
-  const [state, dispatch] = useReducer(appReducer, initialState);
+  const savedTheme = localStorage.getItem("theme") || "light"; // Recupera el valor del tema del almacenamiento local o establece el valor predeterminado "light"
+
+  const [state, dispatch] = useReducer(appReducer, {
+    ...initialState,
+    theme: savedTheme, // Establece el valor del tema recuperado del almacenamiento local como el valor inicial del estado
+  });
+
+  // ======================================================
 
   useEffect(() => {
     // Llamada a la API para obtener la información de los dentistas
@@ -52,6 +61,8 @@ const GlobalContextProvider = ({ children }) => {
     // Ejecuta la función fetchData una sola vez al cargar el componente
     fetchData();
   }, []);
+
+  // ======================================================
 
   // Recuperar los favoritos del localStorage al cargar la aplicación
   useEffect(() => {
@@ -67,12 +78,13 @@ const GlobalContextProvider = ({ children }) => {
     localStorage.setItem("favorites", JSON.stringify(state.favorites));
   }, [state.favorites]);
 
+  // ======================================================
+
   // Cambiar el tema actual y guardarlo en localStorage al actualizar el estado de "theme"
   const toggleTheme = () => {
     dispatch({ type: "TOGGLE_THEME" });
   };
 
-  // ======================================================
   useEffect(() => {
     // Recuperar el tema seleccionado del localStorage al cargar la aplicación
     const savedTheme = localStorage.getItem("theme");
@@ -86,6 +98,11 @@ const GlobalContextProvider = ({ children }) => {
     localStorage.setItem("theme", state.theme);
   }, [state.theme]);
 
+  useEffect(() => {
+    // Agrega una clase al body que corresponde al tema actual
+    document.body.classList.remove("light", "dark");
+    document.body.classList.add(state.theme);
+  }, [state.theme]);
   // ======================================================
 
   // Retorna el proveedor de contexto global con el estado, dispatch y la función

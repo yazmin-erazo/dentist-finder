@@ -5,9 +5,10 @@ import Home from "./components/pages/Home";
 import Contact from "./components/pages/Contact";
 import Favorites from "./components/pages/Favorites";
 import Footer from "./components/layouts/Footer/Footer";
-import "./App.css";
 import GlobalContextProvider from "./components/context/GlobalContext";
 import DentistDetail from "./components/pages/DentistDetail";
+import Dentists from "./components/pages/Dentists";
+import NotFound from "./components/pages/NotFound";
 
 function App() {
   return (
@@ -17,12 +18,13 @@ function App() {
           <Route element={<Footer />}>
             <Route element={<Navbar />}>
               <Route path="/" element={<Home />} />
+              <Route path="/dentistas" element={<Dentists />} />
               <Route path="/dentista/:id" element={<DentistDetail />} />
               <Route path="/contacto" element={<Contact />} />
-              <Route path="/favs" element={<Favorites />} />
+              <Route path="/favoritos" element={<Favorites />} />
             </Route>
           </Route>
-          <Route path="*" element={<h1>Not Found</h1>} />
+          <Route path="*" element={<NotFound />} />
         </Routes>
       </GlobalContextProvider>
     </BrowserRouter>

@@ -2,6 +2,7 @@ import React, { useContext } from "react";
 import { GlobalContext } from "../context/GlobalContext";
 import FavoriteButton from "./FavoriteButton";
 import { Link } from "react-router-dom";
+import { MdPlace } from "react-icons/md";
 
 const CardDentist = ({ dentist }) => {
   const { state, dispatch } = useContext(GlobalContext);
@@ -20,12 +21,31 @@ const CardDentist = ({ dentist }) => {
   };
 
   return (
-    <div>
+    <div
+      className={`card-dentist mt-4 p-4 rounded-lg shadow-md border border-slate-300/10 ${state.theme}`}
+    >
       {/* Define el Link para navegar a la página del detalle del dentista */}
-      <Link to={`/dentista/${dentist.login.uuid}`}> 
-        <p>{dentist.name.first}</p>
-        <p>{dentist.description}</p>
+      <Link to={`/dentista/${dentist.login.uuid}`}>
+        <div className="relative">
+          <div className="flex flex-col items-center w-full mb-4">
+            <img
+              src={dentist.picture.large}
+              alt="Dentist profile"
+              className="rounded-full border z-10"
+            />
+            <div className="absolute top-0 w-full h-1/3 border-b border-b-slate-300/10 "></div>
+            <p className="text-lg font-medium my-2">
+              {dentist.name.first} {dentist.name.last}
+            </p>
+
+            <p className="text-md text-center flex items-center justify-center mb-2 text-slate-500 ">
+              <MdPlace size={18} className="mx-2" />
+              {dentist.location.city}
+            </p>
+          </div>
+        </div>
       </Link>
+      {/* <div className="py-4 bg-slate-700 flex justify-center rounded-md w-full"> */}
       <FavoriteButton isFavorite={isFavorite} onClick={handleToggleFavorite} />
     </div>
   );

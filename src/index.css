@@ -1,75 +1,155 @@
-/* * {
-  padding: 0;
-  margin: 0;
-  box-sizing: border-box;
-} */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
 
 :root {
-  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
-  line-height: 1.5;
-  font-weight: 400;
+  --theme: dark;
 
-  color-scheme: light dark;
-  color: rgba(255, 255, 255, 0.87);
-  background-color: #242424;
+  /* --clr-bg-dark: #1f2937; gray-800 */
+  --clr-bg-dark: #0f172a; /* slate-950 */
+  --clr-bg-light: #edf2f7; /* zinc-50 */
 
-  font-synthesis: none;
-  text-rendering: optimizeLegibility;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  -webkit-text-size-adjust: 100%;
-}
+  --clr-text-dark: #1f2937; /* gray-200 */
+  --clr-text-light: #fafafa; /* zinc-50 */
 
-a {
-  font-weight: 500;
-  color: #646cff;
-  text-decoration: inherit;
-}
-a:hover {
-  color: #535bf2;
-}
+  --clr-card-dark: #04081d;
+  --clr-card-light: #f4f9ff;
 
-body {
-  margin: 0;
-  display: flex;
-  place-items: center;
-  min-width: 320px;
-  min-height: 100vh;
+  --bg-gradient: linear-gradient(to top right, #1f2937, #000000);
 }
 
 h1 {
-  font-size: 3.2em;
-  line-height: 1.1;
+  font-size: 1.875rem;
 }
 
-button {
-  border-radius: 8px;
-  border: 1px solid transparent;
-  padding: 0.6em 1.2em;
-  font-size: 1em;
-  font-weight: 500;
-  font-family: inherit;
-  background-color: #1a1a1a;
+.dark {
+  background-color: var(--clr-bg-dark);
+  color: var(--clr-text-light);
+}
+
+.light {
+  background-color: var(--clr-bg-light);
+  color: var(--clr-text-dark);
+}
+
+.card-dentist {
+  background-color: var(--clr-bg-light);
+  color: var(--clr-text-dark);
+}
+
+.card-dentist:hover {
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+}
+.card-dentist img {
+  width: 6rem;
+  height: 6rem;
+  border-radius: 50%;
+  margin-bottom: 0.5rem;
+  border: 2px solid var(--clr-bg-light);
+}
+
+.card-dentist.dark {
+  background-color: var(--clr-card-dark);
+  color: var(--clr-text-light);
+}
+
+.card-dentist.light {
+  color: var(--clr-text-dark);
+  margin-top: 1rem;
+  padding: 1rem;
+  border-radius: 0.5rem;
+  box-shadow: 0px 2px 3px rgba(0, 0, 0, 0.1);
+  background-color: #ffffff;
+  border: 1px solid #e2e8f0;
+}
+
+.button-fav {
+  background-color: var(--clr-indigo);
+  color: var(--clr-text-light);
+  display: flex;
+  justify-content: center;
+  border-radius: 0.5rem;
+  width: 100%;
+  padding: 0.75rem 1rem;
+  box-shadow: 0px 2px 3px rgba(0, 0, 0, 0.1);
+  font-size: 1rem;
   cursor: pointer;
-  transition: border-color 0.25s;
-}
-button:hover {
-  border-color: #646cff;
-}
-button:focus,
-button:focus-visible {
-  outline: 4px auto -webkit-focus-ring-color;
+  transition: all 0.2s ease-in-out;
 }
 
-@media (prefers-color-scheme: light) {
-  :root {
-    color: #213547;
-    background-color: #ffffff;
-  }
-  a:hover {
-    color: #747bff;
-  }
-  button {
-    background-color: #f9f9f9;
-  }
+.button-fav.dark {
+  background-color: #1a202c;
+  color: #444;
+}
+
+.button-fav.dark:hover {
+  background-color: #2d3748;
+}
+
+.button-fav.dark:active {
+  transform: translateY(2px);
+  box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.1);
+}
+
+.button-fav.light {
+  background-color: #e5e9f0;
+  color: #444;
+}
+
+.button-fav.light:active {
+  transform: translateY(2px);
+  box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.1);
+}
+
+.button-fav.light:hover {
+  background-color: #cbd5e0;
+}
+
+.no-style-button {
+  background-color: transparent;
+  border: none;
+  color: inherit;
+  cursor: pointer;
+  font-size: inherit;
+  padding: 0;
+  margin: 0;
+}
+
+.dentist-image {
+  position: absolute;
+  left: 50%;
+  top: 180px; /* La mitad de la altura de la imagen */
+  transform: translateX(-50%);
+  z-index: 1;
+  border: 4px solid white;
+  width: 140px;
+  height: 140px;
+  border: 7px solid #0f172a;
+}
+
+/* ------------------------------------- */
+
+.notfound {
+  background-color: #4f5bc4;
+  color: white;
+}
+
+/* ------------------------------------- */
+
+.link-btn {
+  display: inline-block;
+  padding: 0.2rem 0.5rem;
+  font-weight: 500;
+  border-bottom: 2px solid transparent;
+  transition: color 0.2s ease-in-out, border-color 0.2s ease-in-out;
+}
+
+.link-btn:hover,
+.link-btn:focus {
+  border-bottom: 2px solid rgb(112, 150, 255);
+}
+
+.link-btn.active {
+  color: #ffffffa2;
+  background-color: #b4b4b4;
 }

@@ -1,10 +1,14 @@
 import { FaHeart, FaRegHeart } from "react-icons/fa";
+import { GlobalContext } from "../context/GlobalContext";
+import { useContext } from "react";
 
 const FavoriteButton = ({ isFavorite, onClick }) => {
+  const { state } = useContext(GlobalContext);
+
   return (
-    <div onClick={onClick}>
+    <button onClick={onClick} className={`button-fav ${state.theme}`}>
       {isFavorite ? <FaHeart color="red" /> : <FaRegHeart />}
-    </div>
+    </button>
   );
 };
 
