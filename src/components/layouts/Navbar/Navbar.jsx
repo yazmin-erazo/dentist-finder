@@ -3,7 +3,7 @@ import { Link, Outlet } from "react-router-dom";
 import { GlobalContext } from "../../context/GlobalContext";
 import { FaTooth } from "react-icons/fa";
 import { FiSun } from "react-icons/fi";
-import { BsFillMoonStarsFill } from "react-icons/Bs";
+import { BsFillMoonStarsFill } from "react-icons/bs";
 import HamburgerMenu from "../../common/HamburgerMenu";
 
 const Navbar = () => {

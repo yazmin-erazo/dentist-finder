@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { BsList, BsX } from "react-icons/Bs";
+import { BsList, BsX } from "react-icons/bs";
 import { Link } from "react-router-dom";
 
 const HamburgerMenu = () => {
