@@ -25,7 +25,7 @@ const CardDentist = ({ dentist }) => {
       className={`card-dentist mt-4 p-4 rounded-lg shadow-md border border-slate-300/10 ${state.theme}`}
     >
       {/* Define el Link para navegar a la página del detalle del dentista */}
-      <Link to={`/dentista/${dentist.login.uuid}`}>
+      <Link to={`/dentist-finder/dentista/${dentist.login.uuid}`}>
         <div className="relative">
           <div className="flex flex-col items-center w-full mb-4">
             <img

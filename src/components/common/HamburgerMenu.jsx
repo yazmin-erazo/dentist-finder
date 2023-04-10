@@ -25,7 +25,7 @@ const HamburgerMenu = () => {
             <ul className="text-lg text-center">
               <li className="mb-4">
                 <Link
-                  to="/dentistas"
+                  to="/dentist-finder/dentistas"
                   className="hover:text-blue-400 link-btn"
                   onClick={handleClick}
                 >
@@ -34,7 +34,7 @@ const HamburgerMenu = () => {
               </li>
               <li className="mb-4">
                 <Link
-                  to="/favoritos"
+                  to="/dentist-finder/favoritos"
                   className="hover:text-blue-400 link-btn"
                   onClick={handleClick}
                 >
@@ -43,7 +43,7 @@ const HamburgerMenu = () => {
               </li>
               <li className="mb-4">
                 <Link
-                  to="/contacto"
+                  to="/dentist-finder/contacto"
                   className="hover:text-blue-400 link-btn"
                   onClick={handleClick}
                 >

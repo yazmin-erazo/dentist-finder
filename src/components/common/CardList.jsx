@@ -26,7 +26,7 @@ const CardList = ({ dentist }) => {
       style={{ gridTemplateColumns: "auto 50px" }}
     >
       {/* Define el Link para navegar a la página del detalle del dentista */}
-      <Link to={`/dentista/${dentist.login.uuid}`} className="grid">
+      <Link to={`/dentist-finder/dentista/${dentist.login.uuid}`} className="grid">
         <div className="flex ">
           <div className="mr-6">
             <img

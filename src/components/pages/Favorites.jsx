@@ -25,7 +25,7 @@ const Favorites = () => {
               }}
             >
               <Link
-                to={`/dentista/${dentist.login.uuid}`}
+                to={`/dentist-finder/dentista/${dentist.login.uuid}`}
                 key={dentist.login.uuid}
               >
                 <p>{dentist.name.first}</p>
