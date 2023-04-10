@@ -11,7 +11,7 @@ const NotFound = () => {
           </p>
           <div className="mt-6 mb-16">
             <Link
-              to="/"
+              to="/dentist-finder"
               className="inline-flex items-center px-6 py-3 border border-transparent text-base font-medium rounded-full shadow-sm text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 mt-8"
             >
               Volver al inicio

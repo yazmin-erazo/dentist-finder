@@ -24,7 +24,7 @@ const Navbar = () => {
       >
         <div className="container mx-auto px-4">
           <nav className="flex items-center justify-between py-4">
-            <Link className=" flex items-center font-bold text-lg" to="/">
+            <Link className=" flex items-center font-bold text-lg" to="/dentist-finder">
               <FaTooth className="mr-2" size={24} /> Dentistas
             </Link>
 
