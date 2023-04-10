@@ -18,13 +18,13 @@ function App() {
           <Route element={<Footer />}>
             <Route element={<Navbar />}>
               <Route path="/dentist-finder" element={<Home />} />
-              <Route path="/dentistas" element={<Dentists />} />
+              <Route path="/dentist-finder/dentistas" element={<Dentists />} />
               <Route
-                path="/dentista/:id"
+                path="/dentist-finder/dentista/:id"
                 element={<DentistDetailContainer />}
               />
-              <Route path="/contacto" element={<ContactContainer />} />
-              <Route path="/favoritos" element={<Favorites />} />
+              <Route path="/dentist-finder/contacto" element={<ContactContainer />} />
+              <Route path="/dentist-finder/favoritos" element={<Favorites />} />
             </Route>
           </Route>
           <Route path="*" element={<NotFound />} />
