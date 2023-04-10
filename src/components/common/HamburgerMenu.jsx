@@ -21,12 +21,12 @@ const HamburgerMenu = () => {
       {isOpen && (
         <div className="absolute top-0 left-0 w-full h-screen bg-slate-800">
           <nav className="flex flex-col justify-center items-center h-full text-white">
-            <h2 className="text-xl font-medium mb-6">🦷</h2>
+            <h2 className=" text-4xl font-medium mb-12">🦷</h2>
             <ul className="text-lg text-center">
               <li className="mb-4">
                 <Link
                   to="/dentistas"
-                  className="hover:text-blue-400"
+                  className="hover:text-blue-400 link-btn"
                   onClick={handleClick}
                 >
                   Profesionales
@@ -35,7 +35,7 @@ const HamburgerMenu = () => {
               <li className="mb-4">
                 <Link
                   to="/favoritos"
-                  className="hover:text-blue-400"
+                  className="hover:text-blue-400 link-btn"
                   onClick={handleClick}
                 >
                   Favoritos
@@ -44,7 +44,7 @@ const HamburgerMenu = () => {
               <li className="mb-4">
                 <Link
                   to="/contacto"
-                  className="hover:text-blue-400"
+                  className="hover:text-blue-400 link-btn"
                   onClick={handleClick}
                 >
                   Contacto

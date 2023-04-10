@@ -41,6 +41,8 @@ const appReducer = (state, action) => {
 const GlobalContextProvider = ({ children }) => {
   // const [state, dispatch] = useReducer(appReducer, initialState);
 
+  // ========================== LOCAL STORAGE ============================
+  
   // Configura el estado global usando el reducer y el estado inicial
   const savedTheme = localStorage.getItem("theme") || "light"; // Recupera el valor del tema del almacenamiento local o establece el valor predeterminado "light"
 
@@ -49,7 +51,7 @@ const GlobalContextProvider = ({ children }) => {
     theme: savedTheme, // Establece el valor del tema recuperado del almacenamiento local como el valor inicial del estado
   });
 
-  // ======================================================
+  // ========================== API ============================
 
   useEffect(() => {
     // Llamada a la API para obtener la información de los dentistas
@@ -62,7 +64,7 @@ const GlobalContextProvider = ({ children }) => {
     fetchData();
   }, []);
 
-  // ======================================================
+  // ========================== FAVS ============================
 
   // Recuperar los favoritos del localStorage al cargar la aplicación
   useEffect(() => {
@@ -78,7 +80,7 @@ const GlobalContextProvider = ({ children }) => {
     localStorage.setItem("favorites", JSON.stringify(state.favorites));
   }, [state.favorites]);
 
-  // ======================================================
+  // ========================== THEME ============================
 
   // Cambiar el tema actual y guardarlo en localStorage al actualizar el estado de "theme"
   const toggleTheme = () => {
@@ -103,7 +105,9 @@ const GlobalContextProvider = ({ children }) => {
     document.body.classList.remove("light", "dark");
     document.body.classList.add(state.theme);
   }, [state.theme]);
-  // ======================================================
+
+
+  // ========================== FIN ============================
 
   // Retorna el proveedor de contexto global con el estado, dispatch y la función
   return (

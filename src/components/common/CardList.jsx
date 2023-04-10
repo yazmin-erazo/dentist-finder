@@ -4,6 +4,7 @@ import FavoriteButton from "./FavoriteButton";
 import { Link } from "react-router-dom";
 import { MdPlace } from "react-icons/md";
 
+
 const CardList = ({ dentist }) => {
   const { state, dispatch } = useContext(GlobalContext);
   const { favorites } = state;

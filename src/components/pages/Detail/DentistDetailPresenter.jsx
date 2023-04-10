@@ -1,40 +1,13 @@
-import React, { useContext, useEffect } from "react";
-import { useParams } from "react-router-dom";
-import FavoriteButton from "../common/FavoriteButton";
-import { GlobalContext } from "../context/GlobalContext";
-import { generateDescription } from "../utils/generateDescription";
+import React from "react";
 import { MdPlace } from "react-icons/md";
+import FavoriteButton from "../../common/FavoriteButton";
 
-const DentistDetail = () => {
-  const { id } = useParams();
-  const { state, dispatch } = useContext(GlobalContext);
-  const { dentists, favorites } = state;
-
-  const selectedDentist =
-    dentists.find((dentist) => dentist.login.uuid === id) ||
-    favorites.find((favorite) => favorite.login.uuid === id);
-
-  // Apply generateDescription function to the selectedDentist object
-  if (selectedDentist) {
-    selectedDentist.description = generateDescription(
-      selectedDentist.name.first
-    );
-  }
-  // Verifica si el dentista está en la lista de favoritos
-  const isFavorite = favorites.some((dentist) => dentist.login.uuid === id);
-
-  const handleToggleFavorite = () => {
-    if (isFavorite) {
-      dispatch({ type: "REMOVE_FAVORITE", payload: selectedDentist });
-    } else {
-      dispatch({ type: "ADD_FAVORITE", payload: selectedDentist });
-    }
-  };
-
-  if (!selectedDentist) {
-    return <div className="mt-28 text-center">No se encontró el dentista</div>;
-  }
-
+const DentistDetailPresenter = ({
+  selectedDentist,
+  isFavorite,
+  handleToggleFavorite,
+  theme,
+}) => {
   return (
     <div className="mb-28 ">
       <div className="flex justify-center absolute items-center w-full">
@@ -50,7 +23,7 @@ const DentistDetail = () => {
           <img
             src={selectedDentist.picture.large}
             alt="Dentist profile"
-            className="dentist-image rounded-full"
+            className={`dentist-image rounded-full ${theme}`}
           />
           <div className="mt-24 text-center flex flex-col items-center">
             <h3 className=" text-3xl mb-3 font-medium">
@@ -93,4 +66,4 @@ const DentistDetail = () => {
   );
 };
 
-export default DentistDetail;
+export default DentistDetailPresenter;

@@ -1,7 +1,7 @@
 import React, { useContext } from "react";
 import { Link } from "react-router-dom";
 import { GlobalContext } from "../context/GlobalContext";
-import CardDentist from "../common/CardDentist";
+
 
 import CardList from "../common/CardList";
 import { generateDescription } from "../utils/generateDescription";

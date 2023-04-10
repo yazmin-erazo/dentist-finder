@@ -1,57 +1,17 @@
-import { useContext, useState } from "react";
-import { AiOutlineMessage } from "react-icons/ai";
-import { AiOutlineCheckCircle } from "react-icons/ai";
-import { GlobalContext } from "../context/GlobalContext";
-import SuccessMessage from "../common/SuccessMessage";
+import SuccessMessage from "../../common/SuccessMessage";
 
-const Contact = () => {
-  const [name, setName] = useState("");
-  const [email, setEmail] = useState("");
-  const [nameError, setNameError] = useState("");
-  const [emailError, setEmailError] = useState("");
-  const [successMessage, setSuccessMessage] = useState("");
-  const [formSubmitted, setFormSubmitted] = useState(false);
-
-  const { state, toggleTheme } = useContext(GlobalContext);
-  const handleThemeChange = () => {
-    toggleTheme();
-  };
-
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-
-    if (name.length < 6) {
-      setNameError("Por favor, ingresa un nombre de al menos 6 caracteres");
-      setEmailError("");
-      setSuccessMessage("");
-    } else if (!email.trim()) {
-      setEmailError("Por favor, ingresa tu correo electrónico");
-      setNameError("");
-      setSuccessMessage("");
-    } else if (
-      (!email.includes("@") && !email.includes(".")) ||
-      !emailRegex.test(email)
-    ) {
-      setEmailError(
-        "Parece que falta el @ y el dominio en tu correo electrónico"
-      );
-      setNameError("");
-      setSuccessMessage("");
-    } else {
-      setSuccessMessage(`¡Gracias por contactarnos ${name},!`);
-      setNameError("");
-      setEmailError("");
-      setFormSubmitted(true);
-      handleReset();
-    }
-  };
-
-  const handleReset = () => {
-    setName("");
-    setEmail("");
-  };
-
+const ContactPresenter = ({
+  name,
+  email,
+  nameError,
+  emailError,
+  successMessage,
+  handleSubmit,
+  handleReset,
+  setName,
+  setEmail,
+  state
+}) => {
   return (
     <div
       className={`mt-28 flex justify-center ${
@@ -123,4 +83,4 @@ const Contact = () => {
   );
 };
 
-export default Contact;
+export default ContactPresenter;

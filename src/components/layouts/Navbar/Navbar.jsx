@@ -1,10 +1,10 @@
 import React, { useContext } from "react";
 import { Link, Outlet } from "react-router-dom";
 import { GlobalContext } from "../../context/GlobalContext";
-import { FaSun, FaMoon, FaTooth, FaFilter } from "react-icons/fa";
+import { FaTooth } from "react-icons/fa";
 import { FiSun } from "react-icons/fi";
 import { BsFillMoonStarsFill } from "react-icons/Bs";
-import HamburgerMenu from "../../common/HamburguerMenu";
+import HamburgerMenu from "../../common/HamburgerMenu";
 
 const Navbar = () => {
   const { state, toggleTheme } = useContext(GlobalContext);
