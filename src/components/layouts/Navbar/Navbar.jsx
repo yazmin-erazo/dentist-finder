@@ -29,13 +29,13 @@ const Navbar = () => {
             </Link>
 
             <div className="hidden sm:block ">
-              <Link className=" mr-4 link-btn" to="/dentist-finder//dentistas">
+              <Link className=" mr-4 link-btn" to="/dentist-finder/dentistas">
                 Profesionales
               </Link>
-              <Link className=" mr-4 link-btn" to="/dentist-finder//favoritos">
+              <Link className=" mr-4 link-btn" to="/dentist-finder/favoritos">
                 Favoritos
               </Link>
-              <Link className=" mr-4 link-btn" to="/dentist-finder//contacto">
+              <Link className=" mr-4 link-btn" to="/dentist-finder/contacto">
                 Contacto
               </Link>
             </div>
